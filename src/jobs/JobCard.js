@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./JobCard.css";
 import UserContext from "../auth/UserContext";
+import { MdOutlineWork } from "react-icons/md";
 
 /** Show limited information about a job.
  *
@@ -33,10 +34,11 @@ function JobCard({ id, title, salary, equity, companyName }) {
   return (
       <div className="JobCard card"> {applied}
         <div className="card-body">
-          <h6 className="card-title">{title}</h6>
-          <p>{companyName}</p>
+          <h3 style={{color:"#0072b1" }} className="card-title"><MdOutlineWork /> {title}</h3>
+          <h5>{companyName}</h5>
           {salary && <div><small>Salary: {formatSalary(salary)}</small></div>}
           {equity !== undefined && <div><small>Equity: {equity}</small></div>}
+          <div className="d-flex justify-content-end">
           <button
               className="btn btn-danger font-weight-bold text-uppercase float-right"
               onClick={handleApply}
@@ -44,6 +46,7 @@ function JobCard({ id, title, salary, equity, companyName }) {
           >
             {applied ? "Applied" : "Apply"}
           </button>
+          </div>
         </div>
       </div>
   );

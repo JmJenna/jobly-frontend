@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FaSearch } from 'react-icons/fa';
+import { Container , InputGroup , Button  ,Form} from 'react-bootstrap';
 import "./SearchForm.css";
 
 /** Search widget.
@@ -16,7 +18,7 @@ import "./SearchForm.css";
 function SearchForm({ searchFor }) {
   console.debug("SearchForm", "searchFor=", typeof searchFor);
 
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(""); 
 
   /** Tell parent to filter */
   function handleSubmit(evt) {
@@ -32,19 +34,24 @@ function SearchForm({ searchFor }) {
   }
 
   return (
-      <div className="SearchForm mb-4">
-        <form className="form-inline" onSubmit={handleSubmit}>
-          <input
-              className="form-control form-control-lg flex-grow-1"
-              name="searchTerm"
-              placeholder="Enter search term.."
-              value={searchTerm}
-              onChange={handleChange}
-          />
-          <button type="submit" className="btn btn-lg btn-primary">
-            Submit
-          </button>
-        </form>
+      <div>
+      <Container className="SearchContain text-center">         
+      <form onSubmit={handleSubmit}>  
+      <InputGroup size="lg" className="mb-3 SearchForm">       
+        <Form.Control
+          placeholder="Enter search term.."
+          aria-label="searchTerm"
+          aria-describedby="basic-addon2"
+          value={searchTerm}
+          onChange={handleChange}
+        />
+        <Button style={{color:"white" ,backgroundColor:"#0072b1",border:"#0072b1"}} 
+                id="button-addon2" type="submit">
+          <FaSearch />
+        </Button >
+      </InputGroup>        
+      </form>
+      </Container> 
       </div>
   );
 }

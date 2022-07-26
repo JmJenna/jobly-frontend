@@ -2,7 +2,7 @@ import React , {useState , useContext} from 'react';
 import Alert from "../common/Alert";
 import JoblyApi from "../api";
 import UserContext from "../auth/UserContext";
-
+import {Container, Row , Card } from 'react-bootstrap';
 
 function ProfileForm(){
     const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -75,16 +75,14 @@ function ProfileForm(){
   }
   
     return(
-        <div className="col-md-6 col-lg-4 offset-md-3 offset-lg-4">
-        <h3>Profile</h3>
-        <div className="card">
+        <div>
+        <Container style={{ height:"80vh"}} className="text-center">
+        <h3 style={{ padding:"3rem" }} className="Profile mb-3">{formData.username.toUpperCase()}'s profile</h3>
+        <Row xs={1} md={2} lg={3} className="justify-content-center">
+        <Card className="ProfileCard"> 
           <div className="card-body">
             <form>
-              <div className="form-group">
-                <label>Username</label>
-                <p className="form-control-plaintext">{formData.username}</p>
-              </div>
-              <div className="form-group">
+              <div style={{padding:'1rem'}} className="form-group">
                 <label>First Name</label>
                 <input
                     name="firstName"
@@ -93,7 +91,7 @@ function ProfileForm(){
                     onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
+              <div style={{padding:'1rem'}}  className="form-group">
                 <label>Last Name</label>
                 <input
                     name="lastName"
@@ -102,7 +100,7 @@ function ProfileForm(){
                     onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
+              <div style={{padding:'1rem'}}  className="form-group">
                 <label>Email</label>
                 <input
                     name="email"
@@ -111,7 +109,7 @@ function ProfileForm(){
                     onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
+              <div style={{padding:'1rem'}}  className="form-group">
                 <label>Confirm password to make changes:</label>
                 <input
                     type="password"
@@ -132,14 +130,17 @@ function ProfileForm(){
                   : null}
 
               <button
-                  className="btn btn-primary btn-block mt-4"
+                  style={{backgroundColor:"#0072b1", color:"white"}} 
+                  className="btn btn-block mt-4"
                   onClick={handleSubmit}
               >
                 Save Changes
               </button>
             </form>
           </div>
-        </div>
+        </Card>  
+        </Row>
+       </Container> 
       </div>
   );
 }

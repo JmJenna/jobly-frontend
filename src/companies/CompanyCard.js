@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HiOfficeBuilding } from "react-icons/hi";
 
 import "./CompanyCard.css";
 
@@ -10,18 +11,15 @@ import "./CompanyCard.css";
  * CompanyList -> CompanyCard
  */
 
-function CompanyCard({ name, description, logoUrl, handle }) {
-  console.debug("CompanyCard", logoUrl);
+function CompanyCard({ name, description, handle }) {
+
 
   return (
-      <Link className="CompanyCard card" to={`/companies/${handle}`}>
+      <Link style={{textDecoration:"none"}} className="CompanyCard card" to={`/companies/${handle}`}>
         <div className="card-body">
-          <h6 className="card-title">
-            {name}
-            {logoUrl && <img src={logoUrl}
-                             alt={name}
-                             className="float-right ml-5" />}
-          </h6>
+          <h3 style={{color:"#0072b1" }} className="card-title">
+          <HiOfficeBuilding /> {name} 
+          </h3>
           <p><small>{description}</small></p>
         </div>
       </Link>

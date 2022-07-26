@@ -1,33 +1,35 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import UserContext from "../auth/UserContext";
+import React from "react";
+import {  useHistory } from "react-router-dom";
+import { MdOutlineMapsHomeWork } from "react-icons/md";
 import './Homepage.css'
 
-function Homepage() {
-    const { currentUser } = useContext(UserContext);
-    console.debug("Homepage", "currentUser=", currentUser);
+function Homepage({login}) {
+  const history = useHistory();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    await login({
+      username: "user123",
+      password: "password",
+    });
+    
+    history.push("/companies");
+  }
+  
   
     return (
         <div className="Homepage">
           <div className="container text-center">
-            <h1 className="mb-4 font-weight-bold">Jobly</h1>
-            <p className="lead">All the jobs in one, convenient place.</p>
-            {currentUser
-                ? <h2>
-                  Welcome Back, {currentUser.firstName || currentUser.username}!
-                </h2>
-                : (
-                    <p>
-                      <Link className="btn btn-primary font-weight-bold mr-3"
-                            to="/login">
-                        Log in
-                      </Link>
-                      <Link className="btn btn-primary font-weight-bold mr-3"
-                            to="/signup">
-                        Sign up
-                      </Link>
-                    </p>
-                )}
+            <h1 className="mb-4 font-weight-bold">Welcome to Jobly <MdOutlineMapsHomeWork /></h1>
+            <p className="lead">Find your dream job. Work at your dream company.</p>
+
+                <form onSubmit={handleSubmit}>
+                  <button  style={{backgroundColor:"#0072b1", color:"white"}} 
+                           className="btn btn-lg mt-4">
+                           DEMO USER</button>
+                </form>
+
           </div>
         </div>
     );

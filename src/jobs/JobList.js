@@ -3,6 +3,7 @@ import Search from "../common/SearchForm";
 import JoblyApi from "../api";
 import JobCardList from "./JobCardList";
 import LoadingSpinner from "../common/LoadingSpinner";
+import { Container } from 'react-bootstrap';
 
 /** Show page with list of jobs.
  *
@@ -34,11 +35,14 @@ function JobList() {
 
   return (
       <div className="JobList col-md-8 offset-md-2">
+         <Container>
+        <h2  className="text-center" style={{ padding: "2rem"}}>Find your dream job</h2>
         <Search searchFor={search} />
         {jobs.length
             ? <JobCardList jobs={jobs} />
             : <p className="lead">Sorry, no results were found!</p>
         }
+        </Container>
       </div>
   );
 }

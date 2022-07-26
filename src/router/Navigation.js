@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import {Nav, Navbar, Container} from 'react-bootstrap';
+import { MdOutlineMapsHomeWork } from "react-icons/md";
 import UserContext from "../auth/UserContext";
 import "./Navigation.css";
 
@@ -18,55 +20,51 @@ function Navigation({ logout }) {
 
   function loggedInNav() {
     return (
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item mr-4">
-            <NavLink className="nav-link" to="/companies">
-              Companies
-            </NavLink>
-          </li>
-          <li className="nav-item mr-4">
-            <NavLink className="nav-link" to="/jobs">
-              Jobs
-            </NavLink>
-          </li>
-          <li className="nav-item mr-4">
-            <NavLink className="nav-link" to="/profile">
-              Profile
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/" onClick={logout}>
-              Log out {currentUser.first_name || currentUser.username}
-            </Link>
-          </li>
-        </ul>
+      <Nav className="text-center">               
+      <Nav.Item>
+          <Nav.Link style={{color:"white"}} href="/companies">Companies</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+          <Nav.Link style={{color:"white"}} href="/jobs">Jobs</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+          <Nav.Link style={{color:"white"}} href="/profile">Profile</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Link style={{color:"white"}} className="nav-link" to="/" onClick={logout}>
+          Log out {currentUser.first_name || currentUser.username}
+        </Link>
+      </Nav.Item>
+    </Nav>     
     );
   }
+ 
 
   function loggedOutNav() {
     return (
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item mr-4">
-            <NavLink className="nav-link" to="/login">
-              Login
-            </NavLink>
-          </li>
-          <li className="nav-item mr-4">
-            <NavLink className="nav-link" to="/signup">
-              Sign Up
-            </NavLink>
-          </li>
-        </ul>
+      <Nav className="text-center">               
+      <Nav.Item>
+          <Nav.Link style={{color:"white"}}  href="/login">Log in</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+          <Nav.Link style={{color:"white"}} href="/signup">Sing up</Nav.Link>
+      </Nav.Item>
+      </Nav>    
     );
   }
 
   return (
-      <nav className="Navigation navbar navbar-expand-md">
-        <Link className="navbar-brand" to="/">
-          Jobly
+    <Navbar style={{backgroundColor:"#0072b1"}} collapseOnSelect expand="lg" className="fs-5">
+      <Container>
+        <Link style={{color:"white"}} className="navbar-brand fs-2" to="/">
+          <MdOutlineMapsHomeWork /> Jobly
         </Link>
-        {currentUser ? loggedInNav() : loggedOutNav()}
-      </nav>
+        <Navbar.Toggle style={{color:"white"}} aria-controls="responsive-navbar-nav" />
+               <Navbar.Collapse style={{color:"white"}} id="responsive-navbar-nav" className="justify-content-end">  
+                {currentUser ? loggedInNav() : loggedOutNav()}              
+         </Navbar.Collapse>
+        </Container>
+     </Navbar> 
   );
 }
 

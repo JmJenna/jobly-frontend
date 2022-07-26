@@ -3,6 +3,7 @@ import SearchForm from "../common/SearchForm";
 import JoblyApi from "../api";
 import CompanyCard from "./CompanyCard";
 import LoadingSpinner from "../common/LoadingSpinner";
+import { Container } from 'react-bootstrap';
 
 /** Show page with list of companies.
  *
@@ -34,6 +35,8 @@ function CompanyList() {
 
   return (
       <div className="CompanyList col-md-8 offset-md-2">
+        <Container>
+        <h2  className="text-center" style={{ padding: "2rem"}}>Find your dream company</h2>
         <SearchForm searchFor={search} />
         {companies.length
             ? (
@@ -44,13 +47,13 @@ function CompanyList() {
                           handle={c.handle}
                           name={c.name}
                           description={c.description}
-                          logoUrl={c.logoUrl}
                       />
                   ))}
                 </div>
             ) : (
                 <p className="lead">Sorry, no results were found!</p>
             )}
+            </Container>
       </div>
   );
 }

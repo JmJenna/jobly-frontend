@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import JoblyApi from "../api";
 import JobCardList from "../jobs/JobCardList";
 import LoadingSpinner from "../common/LoadingSpinner";
+import { Container } from 'react-bootstrap';
 
 /** Company Detail page.
  *
@@ -31,9 +32,11 @@ function CompanyDetail() {
 
   return (
       <div className="CompanyDetail col-md-8 offset-md-2">
-        <h4>{company.name}</h4>
-        <p>{company.description}</p>
+        <Container>
+        <h3 style={{ color:"#0072b1", padding:"1.5rem"}} className="text-center">{company.name}</h3>
+        <h6 style={{paddingBottom:"2rem"}} className="text-center">{company.description}</h6>
         <JobCardList jobs={company.jobs} />
+        </Container>
       </div>
   );
 }

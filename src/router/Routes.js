@@ -17,7 +17,7 @@ return(
         <Switch>
 
             <Route exact path="/">
-                <Homepage />
+                <Homepage login={login}/>
             </Route>
 
             <Route exact path="/login">
