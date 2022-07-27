@@ -24,3 +24,6 @@
 
 
 # 📷 Screenshots
+![jobly1](https://user-images.githubusercontent.com/92393205/181141683-0aa6f817-d765-44f3-9eee-43db3d06ea26.JPG)
+![jobly2](https://user-images.githubusercontent.com/92393205/181141691-20f8888e-71d0-4a15-9aa1-d9bc6659be46.JPG)
+![jobly3](https://user-images.githubusercontent.com/92393205/181141701-43f874b7-927d-4534-b263-d6344db5eb48.JPG)
