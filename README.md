@@ -22,7 +22,7 @@
 <p> Users have to sign up or log in to browse this website. Users’ information will be stored in the database,once they sign up. Only authenticated users can have an access to this website. </p>
 
 
-### - Show and Search companie's list/ job's list
+### - Show and Search company's list/ job's list
 <p> Users are able to see and search the list of companies and jobs. They also can apply for a job.</p>
 
 
