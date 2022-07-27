@@ -12,7 +12,8 @@
 
 # 💾 Database schema 
   ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
-  
+  ![joblydata](https://user-images.githubusercontent.com/92393205/181142489-f8941acf-da1a-4714-8541-1c78297079a5.png)
+
   
 # 🔧 Features
 ### - Sign up/Log in
