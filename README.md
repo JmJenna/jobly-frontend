@@ -11,9 +11,10 @@
 
 
 # 💾 Database schema 
-  ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
-  <p> Here is the database schema using PostgreSQL </p>
-  ![joblydata](https://user-images.githubusercontent.com/92393205/181142489-f8941acf-da1a-4714-8541-1c78297079a5.png)
+![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+
+![joblydata](https://user-images.githubusercontent.com/92393205/181142668-acfce393-a5c8-481d-a49b-5c1c6dc0c7ac.png)
+
 
   
 # 🔧 Features
